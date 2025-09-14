@@ -1,25 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Booth.pm Purchased Items Downloader (fast-start, minimized tweaks)
-
-- Fetches orders from https://accounts.booth.pm/orders
-- Extracts each item's storefront page id + canonical title
-- Downloads:
-  * all files from `/downloadables/{id}`
-  * the first storefront image (OpenGraph/Twitter image)
-- Names:  {pageid} - {item title}/{pageid} - {downloaded file name}
-- Manifest cache (_manifest.json at script root) to skip repeats
-- HTTP/2 (httpx) for HTML; requests for streamed file downloads
-- Targeted cookie load: cookies.txt first, then a single browser/domain
-- Optional: skip auth preflight to start indexing faster
-- Pacing/batching + backoff (403/429), atomic renames (Win “file in use”)
-
-Python 3.9+
-"""
-
 from __future__ import annotations
-
 import html
 import json
 import logging
@@ -717,3 +696,4 @@ def main(argv: List[str]) -> int:
 if __name__ == "__main__":
     import sys
     sys.exit(main(sys.argv[1:]))
+
